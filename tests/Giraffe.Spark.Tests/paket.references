@@ -4,3 +4,8 @@ dotnet-mono
 Microsoft.NET.Test.Sdk
 YoloDev.Expecto.TestSdk
 altcover
+
+Giraffe
+Spark
+Microsoft.AspNetcore.TestHost
+Microsoft.AspNetCore.Server.Kestrel

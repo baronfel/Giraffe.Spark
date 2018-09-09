@@ -18,6 +18,8 @@ nuget altcover 4.0.603
 nuget Giraffe
 nuget Spark
 nuget Microsoft.AspNetCore.Antiforgery
+nuget Microsoft.AspNetcore.TestHost
+nuget Microsoft.AspNetCore.Server.Kestrel
 
 // [ FAKE GROUP ]
 group Build
