@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net471</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Title>Giraffe.Spark</Title>
+    <Description>Giraffe.Spark is a Giraffe view engine integration for the Spark View Engine.</Description>
+    <!-- summary is not migrated from project.json, but you can use the <Description> property for that if needed. -->
+    <PackageTags>f#, fsharp, giraffe, spark, view engine</PackageTags>
+    <PackageProjectUrl>https://github.com/baronfel/Giraffe.Spark</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/baronfel/Giraffe.Spark/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <Authors>baronfel</Authors>
+    <RepositoryUrl>https://github.com/baronfel/Giraffe.Spark</RepositoryUrl>
+    <!-- owners is not supported in MSBuild -->
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Library.fs" />
+  </ItemGroup>
+
+  <Import Project="..\..\fsc.props" />
+  <Import Project="..\..\netfx.props" />
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>
