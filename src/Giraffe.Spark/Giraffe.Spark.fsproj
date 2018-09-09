@@ -25,7 +25,12 @@
 
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="GiraffeExtensions.fs" />
     <Compile Include="Library.fs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework) == 'net471'">
+    <Reference Include="netstandard.dll" />
   </ItemGroup>
 
   <Import Project="..\..\fsc.props" />

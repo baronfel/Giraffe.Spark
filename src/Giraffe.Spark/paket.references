@@ -1,2 +1,5 @@
 FSharp.Core
 SourceLink.Create.CommandLine
+Giraffe
+Spark
+Microsoft.AspNetCore.Antiforgery

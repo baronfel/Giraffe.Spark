@@ -4,14 +4,21 @@
         <OutputType>Exe</OutputType>
         <TargetFrameworks>net471</TargetFrameworks>
     </PropertyGroup>
+  
     <ItemGroup>
         <Compile Include="AssemblyInfo.fs" />
         <Compile Include="Tests.fs" />
         <Compile Include="Main.fs" />
     </ItemGroup>
+  
     <ItemGroup>
         <ProjectReference Include="../../src/Giraffe.Spark/Giraffe.Spark.fsproj" />
     </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework) == 'net471'">
+      <Reference Include="netstandard.dll" />
+    </ItemGroup>
+
     <Import Project="..\..\fsc.props" />
     <Import Project="..\..\netfx.props" />
     <Import Project="..\..\.paket\Paket.Restore.targets" />
