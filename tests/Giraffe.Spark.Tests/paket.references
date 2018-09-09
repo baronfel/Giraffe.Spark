@@ -9,3 +9,5 @@ Giraffe
 Spark
 Microsoft.AspNetcore.TestHost
 Microsoft.AspNetCore.Server.Kestrel
+Microsoft.Extensions.Logging.Console
+Microsoft.Extensions.Logging.Debug

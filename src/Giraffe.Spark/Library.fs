@@ -55,15 +55,23 @@ module HttpHandlers =
   open Microsoft.AspNetCore.Antiforgery
   open Microsoft.AspNetCore.Http
   open Microsoft.Extensions.DependencyInjection
+  open Microsoft.Extensions.Logging
 
   open Spark
+
+  type Marker = | Marker
 
   let sparkView (contentType: string) (viewName: string) (model: 't): HttpHandler =
     fun (next: HttpFunc) (ctx: HttpContext) -> task {
       let engine = ctx.RequestServices.GetService<ISparkViewEngine>()
+      let logger = ctx.RequestServices.GetService<ILogger<Marker>>()
+      logger.LogInformation("Beginning to render view {viewName}", viewName)
       match SparkEngine.renderView engine ctx viewName model with
-      | Error e -> return failwith (sprintf "Error rendering view %s: %A" viewName e)
+      | Error e ->
+        logger.LogError("Error while logging: {error}", e)
+        return! failwith (sprintf "Error rendering view %s: %A" viewName e)
       | Ok stream ->
+        logger.LogInformation("rendered template successfully")
         return! (setHttpHeader "Content-Type" contentType
                  >=> setBodyFromStream stream) next ctx
     }

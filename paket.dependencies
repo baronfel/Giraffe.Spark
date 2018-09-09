@@ -20,6 +20,8 @@ nuget Spark
 nuget Microsoft.AspNetCore.Antiforgery
 nuget Microsoft.AspNetcore.TestHost
 nuget Microsoft.AspNetCore.Server.Kestrel
+nuget Microsoft.Extensions.Logging.Console
+nuget Microsoft.Extensions.Logging.Debug
 
 // [ FAKE GROUP ]
 group Build

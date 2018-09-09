@@ -13,14 +13,23 @@ module WebApp =
 
   let app = GET >=> route "/index" >=> sparkHtmlView "index.shade" ()
 
+  let errorHandler (ex : System.Exception) (logger : ILogger) =
+    logger.LogError(EventId(), ex, "An unhandled exception has occurred while executing the request.")
+    clearResponse >=> setStatusCode 500 >=> text ex.Message
+
   let contentRoot = Directory.GetCurrentDirectory()
   let views = Path.Combine(contentRoot, "Views")
   let builder =
     WebHostBuilder()
       .UseKestrel()
       .UseContentRoot(contentRoot)
-      .Configure(fun c -> c.UseGiraffe(app))
+      .Configure(fun c ->
+        c
+          .UseGiraffeErrorHandler(errorHandler)
+          .UseGiraffe(app)
+      )
       .ConfigureServices(fun c -> c.AddSparkViewEngine(views) |> ignore)
+      .ConfigureLogging(fun l -> l.AddConsole().AddDebug() |> ignore)
 
 open Expecto
 open Microsoft.AspNetCore.TestHost
