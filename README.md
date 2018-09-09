@@ -1,6 +1,11 @@
 # Giraffe.Spark
 
-Giraffe.Spark is a view engine binding for the Spark View Engine and the Giraffe web library. It currently only support full-framework targets because the SparkViewEngine library only supports full-framwork targets.
+Giraffe.Spark is a view engine binding for the Spark View Engine and the Giraffe web library. It currently only supports full-framework targets because the SparkViewEngine library only supports full-framework targets.
+
+TODOS:
+- [ ] discover/compile views at startup
+- [ ] find view based on name
+- [ ] figure out a nicer way to provide things like `AntiForgeryToken()` from the Nancy bindings (perhaps custom registration of the base view type is enough?)
 
 ---
 
