@@ -27,6 +27,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="GiraffeExtensions.fs" />
     <Compile Include="Library.fs" />
+    <Content Include="Views/**/*.shade" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup Condition="$(TargetFramework) == 'net471'">
